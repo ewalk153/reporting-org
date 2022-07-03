@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true });
+</script>
+<%= render @user %>
+
+    <div class="mermaid">
+    <%= raw mermaid_chart(@user) %>
+    </div>
+<div>
+  <%= link_to "Show user", user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
