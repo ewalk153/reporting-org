@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Proof of concept org chart software.
 
-Things you may want to cover:
+Uses mermaid JS to show the the org chart.
 
-* Ruby version
+* Seed file makes a sample org, with names made up from the words file
+* UserHelper contains the generator for the mermaid js
 
-* System dependencies
+### Bugs
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* the mermaid js does not auto reload on Turbo navigation
