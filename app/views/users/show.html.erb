@@ -6,7 +6,7 @@
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %> | 
-  <%= link_to "Show org", org_user_path(@user) %>
+  <%= link_to "Show org", org_user_path(@user), data: { turbo: false } %>
 
   <%= button_to "Destroy this user", @user, method: :delete %>
 </div>
