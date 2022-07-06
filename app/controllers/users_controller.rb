@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   end
 
   def org
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+      end
+      format.html
+    end
   end
 
   # GET /users/new
