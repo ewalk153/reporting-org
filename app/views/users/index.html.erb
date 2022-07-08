@@ -2,6 +2,8 @@
 
 <h1>Users</h1>
 
+<%= link_to "Next page", users_path(start_id: @users.last.id) %>
+
 <div id="users">
   <% @users.each do |user| %>
     <%= render user %>
@@ -10,5 +12,5 @@
     </p>
   <% end %>
 </div>
-
+<%= link_to "Next page", users_path(start_id: @users.last.id) %> | 
 <%= link_to "New user", new_user_path %>

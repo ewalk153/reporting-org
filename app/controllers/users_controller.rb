@@ -3,12 +3,14 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
     respond_to do |format|
       format.csv do
+        @users = User.all
         response.headers['Content-Type'] = 'text/csv'
       end
-      format.html
+      format.html do
+        @users = User.where("id > ?", params[:start_id] || 0).limit(100)
+      end
     end
   end
 
