@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+      end
+      format.html
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -11,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def org
+    @org_csv_path = params[:all] == 'true' ? users_path(format: :csv) : org_user_path(@user, format: :csv)
     respond_to do |format|
       format.csv do
         response.headers['Content-Type'] = 'text/csv'

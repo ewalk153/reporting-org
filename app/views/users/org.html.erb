@@ -15,7 +15,7 @@
     <script>
       var chart;
       d3.csv(
-        '<%= org_user_path(@user, format: :csv) %>'
+        <%= raw @org_csv_path.to_json %>
       ).then(data => {
         chart = new d3.OrgChart()
           .container('.chart-container')
@@ -56,11 +56,11 @@
   `;
           })
           .render();
-
-        chart.expandAll();
         chart
           .setHighlighted('<%= @user.id%>')
-          .render();
+          .compact(false)
+          .expandAll()
+          .render()
       });
     </script>
 <div>

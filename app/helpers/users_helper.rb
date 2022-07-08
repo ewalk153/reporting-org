@@ -1,4 +1,7 @@
 module UsersHelper
+  def gravatar_img(email, size=100)
+    "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.strip)}?s=#{size}"
+  end
   def reporting_org(user)
     u = user
     org = []
