@@ -1,5 +1,6 @@
 module UsersHelper
   def gravatar_img(email, size=100)
+    return nil unless email
     "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.strip)}?s=#{size}"
   end
   def reporting_org(user)

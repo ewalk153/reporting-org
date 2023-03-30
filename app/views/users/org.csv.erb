@@ -1,4 +1,4 @@
 name,imageUrl,positionName,id,parentId
 <% reporting_org(@user).each do |org_user| %>
-<%= org_user.name %>,<%= gravatar_img(org_user.email) %>,<%= org_user.users_count > 0 ? "manager" : "ic" %>,<%= org_user.id %>,<%= org_user.manager_id %>
+<%= org_user.name %>,<%= gravatar_img(org_user.email) %>,<%= (org_user.users_count || 0) > 0 ? "manager" : "ic" %>,<%= org_user.id %>,<%= org_user.manager_id %>
 <% end %>
